@@ -1,4 +1,6 @@
 import { ProjectWizard } from './pages/projects-wizard/ProjectWizard.tsx';
+import { ThemeProvider } from '@mui/material';
+import { theme } from './theme/theme.config.ts';
 import './App.css';
 import './i18n.config.ts';
 
@@ -19,8 +21,8 @@ export const App = () => {
 
 
     return (
-        <>
+        <ThemeProvider theme={theme}>
             <ProjectWizard activeStep={DEFAULT_ACTIVE_STEP_INDEX}/>
-        </>
+        </ThemeProvider>
     );
 };
