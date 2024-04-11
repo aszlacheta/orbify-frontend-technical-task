@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { App } from './App.tsx';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import './fonts.css';
 import './index.css';
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 async function enableMocking() {
     if (import.meta.env.DEV) {

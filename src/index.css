@@ -1,0 +1,17 @@
+html, body {
+    height: 100%;
+    font-family: "Lato", sans-serif !important;
+}
+
+body {
+    background: rgb(45, 254, 222);
+    background: linear-gradient(141deg, rgba(45, 254, 222, 1) 0%, rgba(51, 146, 255, 1) 100%);
+
+    margin: 50px;
+}
+
+html, body, #root {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}

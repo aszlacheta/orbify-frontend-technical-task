@@ -9,6 +9,9 @@ import { ProjectWizardName } from './steps/project-wizard-name/ProjectWizardName
 import { ProjectWizardDateRange } from './steps/project-wizard-date-range/ProjectWizardDateRange.tsx';
 import { ProjectWizardAreaOfInterests } from './steps/project-wizard-area-of-interests/ProjectWizardAreaOfInterests.tsx';
 import { ProjectWizardSummary } from './steps/project-wizard-summary/ProjectWizardSummary.tsx';
+import { Stack } from '@mui/material';
+
+import styles from './ProjectWizard.module.css';
 
 interface ProjectWizardProps {
     activeStep: number;
@@ -49,12 +52,14 @@ export const ProjectWizard: FC<ProjectWizardProps> = ({ activeStep }) => {
     return (
         <ProjectWizardContext.Provider value={projectWizardContext}>
             <ProjectWizardDispatchContext.Provider value={dispatch}>
-                <Wizard steps={steps}
-                        activeStep={activeStep}
-                        completedLabel={t('steps.completed')}
-                        inProgressLabel={t('steps.inProgress')}
-                        pendingLabel={t('steps.pending')}
-                        onFinish={handleFinish}/>
+                <Stack className={styles.projectWizard}>
+                    <Wizard steps={steps}
+                            activeStep={activeStep}
+                            completedLabel={t('steps.completed')}
+                            inProgressLabel={t('steps.inProgress')}
+                            pendingLabel={t('steps.pending')}
+                            onFinish={handleFinish}/>
+                </Stack>
             </ProjectWizardDispatchContext.Provider>
         </ProjectWizardContext.Provider>
     );
