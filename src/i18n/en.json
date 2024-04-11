@@ -3,6 +3,14 @@
     "completed": "Completed",
     "inProgress": "In progress",
     "pending": "Pending",
+    "welcome": {
+      "title": "Welcome",
+      "preTitle": "-",
+      "description": {
+        "header": "Welcome to Project Wizard!",
+        "description": "Click NEXT button to start project creation process..."
+      }
+    },
     "names": {
       "title": "Project name",
       "preTitle": "Step 1",
@@ -15,12 +23,12 @@
     },
     "areaOfInterests": {
       "title": "Project area of interest",
-      "preTitle": "Step 2",
-      "description": "Step 2 description"
+      "preTitle": "Step 3",
+      "description": "Step 3 description"
     },
     "summary": {
       "title": "Summary",
-      "preTitle": "Step 4",
+      "preTitle": "-",
       "description": "Step 4 description"
     }
   }

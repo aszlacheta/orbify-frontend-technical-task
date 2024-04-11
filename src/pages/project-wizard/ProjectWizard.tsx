@@ -10,6 +10,7 @@ import { ProjectWizardDateRange } from './steps/project-wizard-date-range/Projec
 import { ProjectWizardAreaOfInterests } from './steps/project-wizard-area-of-interests/ProjectWizardAreaOfInterests.tsx';
 import { ProjectWizardSummary } from './steps/project-wizard-summary/ProjectWizardSummary.tsx';
 import { Stack } from '@mui/material';
+import { ProjectWizardWelcome } from './steps/project-wizard-welcome/ProjectWizardWelcome.tsx';
 
 import styles from './ProjectWizard.module.css';
 
@@ -27,6 +28,11 @@ export const ProjectWizard: FC<ProjectWizardProps> = ({ activeStep }) => {
     };
 
     const steps: WizardStep[] = useMemo(() => [
+        {
+            title: t('steps.welcome.title'),
+            preTitle: t('steps.welcome.preTitle'),
+            content: <ProjectWizardWelcome/>
+        },
         {
             title: t('steps.names.title'),
             preTitle: t('steps.names.preTitle'),
