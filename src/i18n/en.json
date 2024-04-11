@@ -1,3 +1,27 @@
 {
-
+  "steps": {
+    "completed": "Completed",
+    "inProgress": "In progress",
+    "pending": "Pending",
+    "names": {
+      "title": "Project name",
+      "preTitle": "Step 1",
+      "description": "Fancy step 1 description"
+    },
+    "dateRange": {
+      "title": "Project time range",
+      "preTitle": "Step 2",
+      "description": "Step 2 description"
+    },
+    "areaOfInterests": {
+      "title": "Project area of interest",
+      "preTitle": "Step 2",
+      "description": "Step 2 description"
+    },
+    "summary": {
+      "title": "Summary",
+      "preTitle": "Step 4",
+      "description": "Step 4 description"
+    }
+  }
 }

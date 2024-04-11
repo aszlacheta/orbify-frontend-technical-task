@@ -1,25 +1,12 @@
-import { ProjectWizard } from './pages/projects-wizard/ProjectWizard.tsx';
+import { ProjectWizard } from './pages/project-wizard/ProjectWizard.tsx';
 import { ThemeProvider } from '@mui/material';
 import { theme } from './theme/theme.config.ts';
-import './App.css';
 import './i18n.config.ts';
 
+const DEFAULT_ACTIVE_STEP_INDEX = 0;
+
 export const App = () => {
-
-    // const { mutate } = useAddProject();
-    //
-    // useEffect(() => {
-    //     const project = { name: '', description: 'dummy', dataRange: [1, 2], areaOfInterest: {} };
-    //     console.log(mutate({ data: project }));
-    //     // add({ name: '', description: 'dummy', dataRange: [1, 2], areaOfInterest: {} })
-    //     //     .then(() => {
-    //     //         console.log('success');
-    //     //     }).catch((error) => {
-    //     //     console.log('error', error);
-    //     // });
-    // }, [mutate]);
-
-
+    
     return (
         <ThemeProvider theme={theme}>
             <ProjectWizard activeStep={DEFAULT_ACTIVE_STEP_INDEX}/>

@@ -15,6 +15,8 @@ module.exports = {
       { allowConstantExport: true },
     ],
     'semi': ['error', 'always'],
-    'object-curly-spacing': ['error', 'always']
+    'object-curly-spacing': ['error', 'always'],
+    "semi-style": ["error", "last"],
+    "quotes": [2, "single", {"avoidEscape": true}]
   },
 }
