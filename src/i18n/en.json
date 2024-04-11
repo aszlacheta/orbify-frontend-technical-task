@@ -14,13 +14,15 @@
     "errors": {
       "required": "This field is required",
       "minLength": "This field is too short. Minimum length is {{minLength}} characters.",
-      "maxLength": "This field is too long. Maximum length is {{maxLength}} characters."
+      "maxLength": "This field is too long. Maximum length is {{maxLength}} characters.",
+      "startDateAfterEndDate": "Start date cannot be later than end date"
     },
     "names": {
       "title": "Project name",
       "preTitle": "Step 1",
+      "header": "Enter project name and description:",
       "nameInput": {
-        "label": "Name (*)",
+        "label": "Name *",
         "placeholder": "Enter project name..."
       },
       "descriptionInput": {
@@ -31,7 +33,13 @@
     "dateRange": {
       "title": "Project time range",
       "preTitle": "Step 2",
-      "description": "Step 2 description"
+      "header": "Select project date range:",
+      "startDateInput": {
+        "title": "Start date"
+      },
+      "endDateInput": {
+        "title": "End date"
+      }
     },
     "areaOfInterests": {
       "title": "Project area of interest",

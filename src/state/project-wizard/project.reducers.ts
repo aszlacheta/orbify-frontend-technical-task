@@ -16,6 +16,12 @@ export const projectWizardReducer: Reducer<ProjectWizard, ProjectWizardDispatchA
                 description: action.data?.description,
             };
         }
+        case ProjectActions.PROJECTS_WIZARD_SET_DATE_RANGE: {
+            return {
+                ...projectWizard,
+                dateRange: action.data?.dateRange ?? {},
+            };
+        }
 
         default:
             return projectWizard;
