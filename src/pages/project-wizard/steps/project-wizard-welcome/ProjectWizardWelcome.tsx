@@ -13,7 +13,7 @@ export const ProjectWizardWelcome: FC<ProjectWizardWelcomeProps> = () => {
     return (
         <Stack className={styles.welcomeContainer}>
             <Typography className={styles.header}>{t('steps.welcome.description.header')}</Typography>
-            <Typography className={styles.description}>{t('steps.welcome.description.description')}</Typography>
+            <Typography>{t('steps.welcome.description.description')}</Typography>
         </Stack>
     );
 };

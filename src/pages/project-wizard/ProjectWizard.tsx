@@ -1,4 +1,4 @@
-import { FC, useMemo, useReducer } from 'react';
+import { FC, useMemo, useReducer, useState } from 'react';
 import { Wizard } from '../../components/wizard/Wizard.tsx';
 import { initialData } from '../../state/project-wizard/project.data.ts';
 import { ProjectWizardContext, ProjectWizardDispatchContext } from '../../state/project-wizard/projectWizardContext.ts';
@@ -13,6 +13,7 @@ import { Stack } from '@mui/material';
 import { ProjectWizardWelcome } from './steps/project-wizard-welcome/ProjectWizardWelcome.tsx';
 
 import styles from './ProjectWizard.module.css';
+import { setProjectDescriptionAction, setProjectNameAction } from '../../state/project-wizard/project.actions.ts';
 
 interface ProjectWizardProps {
     activeStep: number;
@@ -23,8 +24,18 @@ export const ProjectWizard: FC<ProjectWizardProps> = ({ activeStep }) => {
 
     const [projectWizardContext, dispatch] = useReducer(projectWizardReducer, initialData);
 
+    const [isValid, setIsValid] = useState(true);
+
     const handleFinish = () => {
-        console.log('Wizard has finished with data: '); // TODO
+        console.log('Wizard has finished with data: ', projectWizardContext);
+    };
+
+    const handleNameChange = (name: string) => {
+        setProjectNameAction(dispatch, name);
+    };
+
+    const handleDescriptionChange = (description: string) => {
+        setProjectDescriptionAction(dispatch, description);
     };
 
     const steps: WizardStep[] = useMemo(() => [
@@ -36,7 +47,7 @@ export const ProjectWizard: FC<ProjectWizardProps> = ({ activeStep }) => {
         {
             title: t('steps.names.title'),
             preTitle: t('steps.names.preTitle'),
-            content: <ProjectWizardName/>
+            content: <ProjectWizardName onValidation={setIsValid} onNameChange={handleNameChange} onDescriptionChange={handleDescriptionChange}/>
         },
         {
             title: t('steps.dateRange.title'),
@@ -64,7 +75,9 @@ export const ProjectWizard: FC<ProjectWizardProps> = ({ activeStep }) => {
                             completedLabel={t('steps.completed')}
                             inProgressLabel={t('steps.inProgress')}
                             pendingLabel={t('steps.pending')}
-                            onFinish={handleFinish}/>
+                            onFinish={handleFinish}
+                            isNextDisabled={!isValid}
+                    />
                 </Stack>
             </ProjectWizardDispatchContext.Provider>
         </ProjectWizardContext.Provider>

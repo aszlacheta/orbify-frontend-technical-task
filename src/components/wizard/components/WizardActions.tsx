@@ -2,21 +2,27 @@ import { Button, Stack } from '@mui/material';
 import { FC, useContext, useMemo } from 'react';
 import { WizardContext } from '../data/wizard.context.ts';
 
-interface WizardActionsProps {
+export interface WizardActionsProps {
     onBack: () => void;
     onNext: () => void;
     onFinish?: () => void;
+    isBackDisabled?: boolean;
+    isNextDisabled?: boolean;
+    isFinishDisabled?: boolean;
 }
 
 export const WizardActions: FC<WizardActionsProps> = ({
                                                           onBack: handleBack,
                                                           onNext: handleNext,
-                                                          onFinish: handleFinish
+                                                          onFinish: handleFinish,
+                                                          isBackDisabled: isBackDisabledInitial,
+                                                          isNextDisabled: isNextDisabledInitial,
+                                                          isFinishDisabled: isFinishDisabledInitial
                                                       }) => {
     const { activeStep, steps } = useContext(WizardContext);
-    const isPrevDisabled = useMemo(() => activeStep === 0, [activeStep]);
-    const isNextDisabled = useMemo(() => activeStep + 1 >= steps.length, [activeStep, steps]);
-    const isLastStep = useMemo(() => activeStep === steps.length - 1, [activeStep, steps]);
+    const isPrevDisabled = useMemo(() => (activeStep === 0) || isBackDisabledInitial, [activeStep, isBackDisabledInitial]);
+    const isNextDisabled = useMemo(() => activeStep + 1 >= steps.length || isNextDisabledInitial, [activeStep, steps, isNextDisabledInitial]);
+    const isLastStep = useMemo(() => activeStep === steps.length - 1, [activeStep, steps, isFinishDisabledInitial]);
 
     return (
         <Stack flexDirection="row" justifyContent="flex-end">
@@ -42,6 +48,7 @@ export const WizardActions: FC<WizardActionsProps> = ({
                 color="inherit"
                 data-cy="wizard-finish-button"
                 onClick={handleFinish}
+                disabled={isFinishDisabledInitial}
                 sx={{ mr: 1 }}
             >
                 Finish

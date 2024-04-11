@@ -11,10 +11,22 @@
         "description": "Click NEXT button to start project creation process..."
       }
     },
+    "errors": {
+      "required": "This field is required",
+      "minLength": "This field is too short. Minimum length is {{minLength}} characters.",
+      "maxLength": "This field is too long. Maximum length is {{maxLength}} characters."
+    },
     "names": {
       "title": "Project name",
       "preTitle": "Step 1",
-      "description": "Fancy step 1 description"
+      "nameInput": {
+        "label": "Name (*)",
+        "placeholder": "Enter project name..."
+      },
+      "descriptionInput": {
+        "label": "Description",
+        "placeholder": "Enter project description..."
+      }
     },
     "dateRange": {
       "title": "Project time range",

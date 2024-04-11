@@ -5,14 +5,13 @@ import { WizardContext, WizardDispatchContext } from './data/wizard.context.ts';
 import { WizardHeader } from './components/WizardHeader.tsx';
 import { openNextAction, openPrevAction, setActiveStepAction, setStepsAction } from './data/wizard.actions.ts';
 import { WizardContent } from './components/WizardContent.tsx';
-import { WizardActions } from './components/WizardActions.tsx';
+import { WizardActions, WizardActionsProps } from './components/WizardActions.tsx';
 import { WizardHeaderLabelTranslations } from './components/WizardHeaderLabel.tsx';
 
 
-interface WizardProps extends WizardHeaderLabelTranslations {
+interface WizardProps extends WizardHeaderLabelTranslations, Partial<WizardActionsProps> {
     steps?: WizardConfig['steps'];
     activeStep?: WizardConfig['activeStep'];
-    onFinish?: () => void;
 }
 
 /**
@@ -26,7 +25,10 @@ export const Wizard: FC<WizardProps> = ({
                                             pendingLabel,
                                             completedLabel,
                                             inProgressLabel,
-                                            onFinish: handleFinish
+                                            onFinish: handleFinish,
+                                            isBackDisabled,
+                                            isNextDisabled,
+                                            isFinishDisabled
                                         }) => {
     const [wizardConfig, dispatch] = useReducer(wizardReducer, initialData);
     const content = useMemo(() => {
@@ -70,7 +72,12 @@ export const Wizard: FC<WizardProps> = ({
                               inProgressLabel={inProgressLabel}
                               completedLabel={completedLabel}/>
                 <WizardContent content={content}/>
-                <WizardActions onBack={handleBack} onNext={handleNext} onFinish={handleFinish}/>
+                <WizardActions onBack={handleBack}
+                               onNext={handleNext}
+                               onFinish={handleFinish}
+                               isNextDisabled={isNextDisabled}
+                               isBackDisabled={isBackDisabled}
+                               isFinishDisabled={isFinishDisabled}/>
             </WizardDispatchContext.Provider>
         </WizardContext.Provider>
     );
