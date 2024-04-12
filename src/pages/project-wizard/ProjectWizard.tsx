@@ -17,7 +17,8 @@ import {
     setProjectDescriptionAction,
     setProjectNameAction
 } from '../../state/project-wizard/project.actions.ts';
-import { AreaOfInterests, DateRange } from '../../api/generated.ts';
+import { AreaOfInterests, DateRange, useAddProject } from '../../api/generated.ts';
+import { toast } from 'react-toastify';
 
 import styles from './ProjectWizard.module.css';
 
@@ -27,13 +28,19 @@ interface ProjectWizardProps {
 
 export const ProjectWizard: FC<ProjectWizardProps> = ({ activeStep }) => {
     const { t } = useTranslation();
-
     const [projectWizardContext, dispatch] = useReducer(projectWizardReducer, initialData);
-
     const [isValid, setIsValid] = useState(true);
-    
+
+    const { mutateAsync: addProject } = useAddProject();
+
     const handleFinish = () => {
-        console.log('Wizard has finished with data: ', projectWizardContext);
+        addProject({ data: projectWizardContext })
+            .then(() => {
+                toast.success(t('api.projectCreation.success'));
+            })
+            .catch(() => {
+                toast.error(t('api.projectCreation.failure'));
+            });
     };
 
     const handleNameChange = (name: string) => {

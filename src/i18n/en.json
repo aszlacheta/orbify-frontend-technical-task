@@ -75,5 +75,11 @@
         "header": "Project area of interest"
       }
     }
+  },
+  "api": {
+    "projectCreation": {
+      "success": "Project was successfully created!",
+      "failure": "Experienced issue creating given project"
+    }
   }
 }
