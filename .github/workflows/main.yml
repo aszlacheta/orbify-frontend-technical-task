@@ -20,6 +20,6 @@ jobs:
       - name: Install
         run: npm ci
       - name: Build
-        run: npm run build -- -c production --base-href "https://aszlacheta.github.io/orbify-frontend-technical-task"
+        run: npm run build
       - name: Linting
         run: npm run lint
