@@ -3,12 +3,13 @@ import { Typography } from '@mui/material';
 import styles from './WizardHeader.module.css';
 
 
-interface WizardHeaderProps {
+interface WizardHeaderProps  {
     label: string;
+    className?: string;
 }
 
-export const WizardHeader: FC<WizardHeaderProps> = ({ label }) => {
+export const WizardHeader: FC<WizardHeaderProps> = ({ label, className }) => {
     return (
-        <Typography className={styles.header}>{label}</Typography>
+        <Typography className={`${styles.header} ${className}`}>{label}</Typography>
     );
 };

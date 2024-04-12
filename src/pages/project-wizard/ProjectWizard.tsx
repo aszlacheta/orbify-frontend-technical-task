@@ -81,7 +81,7 @@ export const ProjectWizard: FC<ProjectWizardProps> = ({ activeStep }) => {
         {
             title: t('steps.summary.title'),
             preTitle: t('steps.summary.preTitle'),
-            content: <ProjectWizardSummary/>
+            content: <ProjectWizardSummary onValidation={setIsValid}/>
         },
     ], [t,
         projectWizardContext.dateRange.startDate,
@@ -99,6 +99,7 @@ export const ProjectWizard: FC<ProjectWizardProps> = ({ activeStep }) => {
                             pendingLabel={t('steps.pending')}
                             onFinish={handleFinish}
                             isNextDisabled={!isValid}
+                            isFinishDisabled={!isValid}
                     />
                 </Stack>
             </ProjectWizardDispatchContext.Provider>

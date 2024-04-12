@@ -1,4 +1,5 @@
 {
+  "empty": "n/a",
   "steps": {
     "completed": "Completed",
     "inProgress": "In progress",
@@ -57,7 +58,20 @@
     "summary": {
       "title": "Summary",
       "preTitle": "-",
-      "description": "Step 4 description"
+      "header": "Project summary",
+      "nameRow": {
+        "header": "Project Information",
+        "nameLabel": "Name",
+        "descriptionLabel": "Description"
+      },
+      "dateRange": {
+        "header": "Project date range",
+        "startDateLabel": "Start date",
+        "endDateLabel": "End date"
+      },
+      "areaOfInterests": {
+        "header": "Project area of interest"
+      }
     }
   }
 }
