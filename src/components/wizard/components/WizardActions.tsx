@@ -22,7 +22,7 @@ export const WizardActions: FC<WizardActionsProps> = ({
     const { activeStep, steps } = useContext(WizardContext);
     const isPrevDisabled = useMemo(() => (activeStep === 0) || isBackDisabledInitial, [activeStep, isBackDisabledInitial]);
     const isNextDisabled = useMemo(() => activeStep + 1 >= steps.length || isNextDisabledInitial, [activeStep, steps, isNextDisabledInitial]);
-    const isLastStep = useMemo(() => activeStep === steps.length - 1, [activeStep, steps, isFinishDisabledInitial]);
+    const isLastStep = useMemo(() => activeStep === steps.length - 1, [activeStep, steps]);
 
     return (
         <Stack flexDirection="row" justifyContent="flex-end">

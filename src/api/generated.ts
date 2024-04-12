@@ -7,23 +7,23 @@
  */
 import {
   useMutation
-} from '@tanstack/react-query'
+} from '@tanstack/react-query';
 import type {
   MutationFunction,
   UseMutationOptions,
   UseMutationResult
-} from '@tanstack/react-query'
+} from '@tanstack/react-query';
 import * as axios from 'axios';
 import type {
   AxiosError,
   AxiosRequestConfig,
   AxiosResponse
-} from 'axios'
+} from 'axios';
 import {
   HttpResponse,
   delay,
   http
-} from 'msw'
+} from 'msw';
 export interface Project {
   areaOfInterest: AreaOfInterests;
   dateRange: DateRange;
@@ -57,7 +57,7 @@ export interface DateRange {
 export type GeometryEntityType = typeof GeometryEntityType[keyof typeof GeometryEntityType];
 
 
-// eslint-disable-next-line @typescript-eslint/no-redeclare
+ 
 export const GeometryEntityType = {
   Polygon: 'Polygon',
 } as const;
@@ -72,7 +72,7 @@ export type Bbox = unknown[];
 export type AreaOfInterestsType = typeof AreaOfInterestsType[keyof typeof AreaOfInterestsType];
 
 
-// eslint-disable-next-line @typescript-eslint/no-redeclare
+ 
 export const AreaOfInterestsType = {
   Feature: 'Feature',
 } as const;
@@ -98,31 +98,31 @@ export const addProject = (
  ): Promise<AxiosResponse<void>> => {
     
     return axios.default.post(
-      `/api/v2/projects/create`,
+      '/api/v2/projects/create',
       addProjectBody,options
     );
-  }
+  };
 
 
 
 export const getAddProjectMutationOptions = <TError = AxiosError<void>,
     TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof addProject>>, TError,{data: Project | string}, TContext>, axios?: AxiosRequestConfig}
 ): UseMutationOptions<Awaited<ReturnType<typeof addProject>>, TError,{data: Project | string}, TContext> => {
-const {mutation: mutationOptions, axios: axiosOptions} = options ?? {};
+const { mutation: mutationOptions, axios: axiosOptions } = options ?? {};
 
       
 
 
       const mutationFn: MutationFunction<Awaited<ReturnType<typeof addProject>>, {data: Project | string}> = (props) => {
-          const {data} = props ?? {};
+          const { data } = props ?? {};
 
-          return  addProject(data,axiosOptions)
-        }
+          return  addProject(data,axiosOptions);
+        };
 
         
 
 
-  return  { mutationFn, ...mutationOptions }}
+  return  { mutationFn, ...mutationOptions };};
 
     export type AddProjectMutationResult = NonNullable<Awaited<ReturnType<typeof addProject>>>
     export type AddProjectMutationBody = Project | string
@@ -143,7 +143,7 @@ export const useAddProject = <TError = AxiosError<void>,
       const mutationOptions = getAddProjectMutationOptions(options);
 
       return useMutation(mutationOptions);
-    }
+    };
     
 
 
@@ -158,9 +158,9 @@ export const getAddProjectMockHandler = () => {
           'Content-Type': 'application/json',
         }
       }
-    )
-  })
-}
+    );
+  });
+};
 export const getSwaggerOrbifyMock = () => [
   getAddProjectMockHandler()
-]
+];

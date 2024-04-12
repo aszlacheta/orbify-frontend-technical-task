@@ -28,7 +28,7 @@ export const ProjectWizardSummary: FC<ProjectWizardSummaryProps> = ({ onValidati
         return () => {
             onValidation(true);
         };
-    }, [name, dateRange, areaOfInterestJson, onValidation]);
+    }, [name, dateRange, areaOfInterest, onValidation]);
 
     return (
         <Stack className={styles.summaryContainer}>

@@ -24,7 +24,7 @@ export const ProjectWizardAreaOfInterests: FC<ProjectWizardAreaOfInterestsProps>
     const { t } = useTranslation();
     const [areaOfInterest, setAreaOfInterst] = useState<AreaOfInterests | undefined>(areaOfInterestInitial);
     const isAreaOfInterestDefined = useMemo(() => areaOfInterest && Object.keys(areaOfInterest).length > 0, [areaOfInterest]);
-    const json = useMemo<JSON | undefined>(() => isAreaOfInterestDefined && JSON.parse(JSON.stringify(areaOfInterest)), [areaOfInterest]);
+    const json = useMemo<JSON | undefined>(() => isAreaOfInterestDefined && JSON.parse(JSON.stringify(areaOfInterest)), [isAreaOfInterestDefined, areaOfInterest]);
 
     useEffect(() => {
         onValidation(json !== undefined);

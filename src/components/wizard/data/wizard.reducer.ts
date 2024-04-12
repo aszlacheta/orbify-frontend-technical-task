@@ -45,4 +45,4 @@ export const wizardReducer: Reducer<WizardConfig, WizardDispatchAction> = (wizar
         default:
             return wizardConfig;
     }
-}
+};
