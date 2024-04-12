@@ -1,0 +1,13 @@
+.dateRangeContainer {
+}
+
+.dateRangeHeader {
+    font-size: 1.2em !important;
+    margin: 2vh 1vw  !important;
+
+}
+
+.dateRangeInput {
+    flex: 1;
+    margin: 0 1vw  !important;
+}

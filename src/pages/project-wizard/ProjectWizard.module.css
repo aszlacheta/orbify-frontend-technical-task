@@ -1,0 +1,9 @@
+.projectWizard {
+    height: 100%;
+    overflow: hidden;
+
+    padding: 50px;
+    border-radius: 30px;
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.3);
+    background: white;
+}

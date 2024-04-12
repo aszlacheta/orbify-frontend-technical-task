@@ -1,0 +1,94 @@
+{
+  "empty": "n/a",
+  "steps": {
+    "completed": "Completed",
+    "inProgress": "In progress",
+    "pending": "Pending",
+    "welcome": {
+      "title": "Welcome",
+      "preTitle": "-",
+      "description": {
+        "header": "Welcome to Project Wizard!",
+        "description": "Click NEXT button to start project creation process..."
+      }
+    },
+    "errors": {
+      "required": "This field is required",
+      "minLength": "This field is too short. Minimum length is {{minLength}} characters.",
+      "maxLength": "This field is too long. Maximum length is {{maxLength}} characters.",
+      "startDateAfterEndDate": "Start date cannot be later than end date"
+    },
+    "names": {
+      "title": "Project name",
+      "preTitle": "Step 1",
+      "header": "Enter project name and description:",
+      "nameInput": {
+        "label": "Name *",
+        "placeholder": "Enter project name..."
+      },
+      "descriptionInput": {
+        "label": "Description",
+        "placeholder": "Enter project description..."
+      }
+    },
+    "dateRange": {
+      "title": "Project time range",
+      "preTitle": "Step 2",
+      "header": "Select project date range:",
+      "startDateInput": {
+        "title": "Start date"
+      },
+      "endDateInput": {
+        "title": "End date"
+      }
+    },
+    "areaOfInterests": {
+      "title": "Project area of interest",
+      "preTitle": "Step 3",
+      "header": "Upload project date range:",
+      "uploadComponent": {
+        "label": "Click or drag to upload file",
+        "labelHover": "Click to upload file",
+        "dropLabel": "Drop file here...",
+        "replaceLabel": "Click or drag to replace file",
+        "replaceHoverLabel": "Click to replace file",
+        "errors": {
+          "uploadError": "There was an issue uploading chosen file"
+        }
+      }
+    },
+    "summary": {
+      "title": "Summary",
+      "preTitle": "-",
+      "header": "Project summary",
+      "nameRow": {
+        "header": "Project Information",
+        "nameLabel": "Name",
+        "descriptionLabel": "Description"
+      },
+      "dateRange": {
+        "header": "Project date range",
+        "startDateLabel": "Start date",
+        "endDateLabel": "End date"
+      },
+      "areaOfInterests": {
+        "header": "Project area of interest"
+      }
+    }
+  },
+  "api": {
+    "projectCreation": {
+      "success": "Project was successfully created!",
+      "failure": "Experienced issue creating given project"
+    }
+  },
+  "projectDetails": {
+    "button": "Open Project Details",
+    "dialog":{
+      "header": "Project Details",
+      "buttons": {
+        "close": "Close"
+      }
+    }
+  }
+}

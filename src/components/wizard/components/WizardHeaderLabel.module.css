@@ -1,0 +1,32 @@
+.preTitle {
+    color: #a3a4a7;
+    font-size: 0.7rem !important; /* Override MUI theme for this special case */
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+}
+
+.title {
+    color: black;
+}
+
+.description {
+    color: black;
+}
+
+.completed,
+.inProgress,
+.pending {
+    font-size: 0.8rem !important; /* Override MUI theme for this special case */
+}
+
+.completed {
+    color: #008c76;
+}
+
+.inProgress {
+    color: #3384d2;
+}
+
+.pending {
+    color: #e3e3e5;
+}

@@ -1,0 +1,10 @@
+.welcomeContainer {
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.header {
+    margin-bottom: 4vh;
+    font-size: 2rem !important; /* MUI does not work well with adding CSS via external file */
+}
