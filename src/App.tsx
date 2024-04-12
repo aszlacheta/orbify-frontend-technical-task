@@ -3,7 +3,7 @@ import { ThemeProvider } from '@mui/material';
 import { theme } from './theme/theme.config.ts';
 import './i18n.config.ts';
 
-const DEFAULT_ACTIVE_STEP_INDEX = 2;
+const DEFAULT_ACTIVE_STEP_INDEX = 3;
 
 export const App = () => {
 

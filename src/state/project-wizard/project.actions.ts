@@ -5,6 +5,7 @@ export enum ProjectActions {
     PROJECTS_WIZARD_SET_NAME = 'projects-wizard-set-name',
     PROJECTS_WIZARD_SET_DESCRIPTION = 'projects-wizard-set-description',
     PROJECTS_WIZARD_SET_DATE_RANGE = 'projects-wizard-set-date-range',
+    PROJECTS_WIZARD_SET_AREA_OF_INTERESTS = 'projects-wizard-set-area-of-interests',
 }
 
 export type ProjectWizardDispatchAction = {
@@ -21,5 +22,9 @@ export const setProjectDescriptionAction = (dispatch: Dispatch<ProjectWizardDisp
 
 export const setProjectDateRangeAction = (dispatch: Dispatch<ProjectWizardDispatchAction>, dateRange: ProjectWizard['dateRange']) => {
     dispatch({ type: ProjectActions.PROJECTS_WIZARD_SET_DATE_RANGE, data: { dateRange } });
+};
+
+export const setProjectAreaOfInterestAction = (dispatch: Dispatch<ProjectWizardDispatchAction>, areaOfInterest: ProjectWizard['areaOfInterest']) => {
+    dispatch({ type: ProjectActions.PROJECTS_WIZARD_SET_AREA_OF_INTERESTS, data: { areaOfInterest } });
 };
 

@@ -9,7 +9,7 @@ interface WizardContentProps {
 export const WizardContent: FC<WizardContentProps> = ({ content }) => {
 
     return (
-        <Stack flex={1} p={1}>
+        <Stack flex={1} p={1} overflow="auto">
             {content}
         </Stack>
     );

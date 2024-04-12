@@ -22,6 +22,12 @@ export const projectWizardReducer: Reducer<ProjectWizard, ProjectWizardDispatchA
                 dateRange: action.data?.dateRange ?? {},
             };
         }
+        case ProjectActions.PROJECTS_WIZARD_SET_AREA_OF_INTERESTS: {
+            return {
+                ...projectWizard,
+                areaOfInterest: action.data?.areaOfInterest ?? {},
+            };
+        }
 
         default:
             return projectWizard;

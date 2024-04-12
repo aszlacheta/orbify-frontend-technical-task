@@ -44,7 +44,15 @@
     "areaOfInterests": {
       "title": "Project area of interest",
       "preTitle": "Step 3",
-      "description": "Step 3 description"
+      "header": "Upload project date range:",
+      "uploadComponent": {
+        "label": "Click or drag to upload file",
+        "labelHover": "Click to upload file",
+        "dropLabel": "Drop file here...",
+        "errors": {
+          "uploadError": "There was an issue uploading chosen file"
+        }
+      }
     },
     "summary": {
       "title": "Summary",

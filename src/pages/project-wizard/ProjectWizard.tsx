@@ -12,11 +12,12 @@ import { ProjectWizardSummary } from './steps/project-wizard-summary/ProjectWiza
 import { Stack } from '@mui/material';
 import { ProjectWizardWelcome } from './steps/project-wizard-welcome/ProjectWizardWelcome.tsx';
 import {
+    setProjectAreaOfInterestAction,
     setProjectDateRangeAction,
     setProjectDescriptionAction,
     setProjectNameAction
 } from '../../state/project-wizard/project.actions.ts';
-import { DateRange } from '../../api/generated.ts';
+import { AreaOfInterests, DateRange } from '../../api/generated.ts';
 
 import styles from './ProjectWizard.module.css';
 
@@ -34,7 +35,7 @@ export const ProjectWizard: FC<ProjectWizardProps> = ({ activeStep }) => {
     const handleFinish = () => {
         console.log('Wizard has finished with data: ', projectWizardContext);
     };
-    
+
     const handleNameChange = (name: string) => {
         setProjectNameAction(dispatch, name);
     };
@@ -45,6 +46,10 @@ export const ProjectWizard: FC<ProjectWizardProps> = ({ activeStep }) => {
 
     const handleDateRangeChange = (dateRange: DateRange) => {
         setProjectDateRangeAction(dispatch, dateRange);
+    };
+
+    const handleAreaOfInterestChange = (areaOfInterest: AreaOfInterests) => {
+        setProjectAreaOfInterestAction(dispatch, areaOfInterest);
     };
 
     const steps: WizardStep[] = useMemo(() => [
@@ -70,14 +75,18 @@ export const ProjectWizard: FC<ProjectWizardProps> = ({ activeStep }) => {
         {
             title: t('steps.areaOfInterests.title'),
             preTitle: t('steps.areaOfInterests.preTitle'),
-            content: <ProjectWizardAreaOfInterests/>
+            content: <ProjectWizardAreaOfInterests onAreaOfInterestChange={handleAreaOfInterestChange}
+                                                   onValidation={setIsValid}/>
         },
         {
             title: t('steps.summary.title'),
             preTitle: t('steps.summary.preTitle'),
             content: <ProjectWizardSummary/>
         },
-    ], [t]);
+    ], [t,
+        projectWizardContext.dateRange.startDate,
+        projectWizardContext.dateRange.endDate,
+    ]);
 
     return (
         <ProjectWizardContext.Provider value={projectWizardContext}>

@@ -4,6 +4,8 @@ import { App } from './App.tsx';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import './fonts.css';
 import './index.css';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 async function enableMocking() {
     if (import.meta.env.DEV) {
