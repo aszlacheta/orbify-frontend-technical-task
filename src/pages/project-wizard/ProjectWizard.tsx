@@ -31,7 +31,7 @@ export const ProjectWizard: FC<ProjectWizardProps> = ({ activeStep }) => {
     const [projectWizardContext, dispatch] = useReducer(projectWizardReducer, initialData);
 
     const [isValid, setIsValid] = useState(true);
-
+    
     const handleFinish = () => {
         console.log('Wizard has finished with data: ', projectWizardContext);
     };
@@ -48,8 +48,8 @@ export const ProjectWizard: FC<ProjectWizardProps> = ({ activeStep }) => {
         setProjectDateRangeAction(dispatch, dateRange);
     };
 
-    const handleAreaOfInterestChange = (areaOfInterest: AreaOfInterests) => {
-        setProjectAreaOfInterestAction(dispatch, areaOfInterest);
+    const handleAreaOfInterestChange = (areaOfInterest?: AreaOfInterests) => {
+        setProjectAreaOfInterestAction(dispatch, areaOfInterest ?? {});
     };
 
     const steps: WizardStep[] = useMemo(() => [
@@ -61,7 +61,10 @@ export const ProjectWizard: FC<ProjectWizardProps> = ({ activeStep }) => {
         {
             title: t('steps.names.title'),
             preTitle: t('steps.names.preTitle'),
-            content: <ProjectWizardName onValidation={setIsValid} onNameChange={handleNameChange}
+            content: <ProjectWizardName name={projectWizardContext.name}
+                                        description={projectWizardContext.description}
+                                        onValidation={setIsValid}
+                                        onNameChange={handleNameChange}
                                         onDescriptionChange={handleDescriptionChange}/>
         },
         {
@@ -75,7 +78,8 @@ export const ProjectWizard: FC<ProjectWizardProps> = ({ activeStep }) => {
         {
             title: t('steps.areaOfInterests.title'),
             preTitle: t('steps.areaOfInterests.preTitle'),
-            content: <ProjectWizardAreaOfInterests onAreaOfInterestChange={handleAreaOfInterestChange}
+            content: <ProjectWizardAreaOfInterests areaOfInterest={projectWizardContext.areaOfInterest}
+                                                   onAreaOfInterestChange={handleAreaOfInterestChange}
                                                    onValidation={setIsValid}/>
         },
         {
@@ -84,8 +88,11 @@ export const ProjectWizard: FC<ProjectWizardProps> = ({ activeStep }) => {
             content: <ProjectWizardSummary onValidation={setIsValid}/>
         },
     ], [t,
+        projectWizardContext.name,
+        projectWizardContext.description,
         projectWizardContext.dateRange.startDate,
         projectWizardContext.dateRange.endDate,
+        projectWizardContext.areaOfInterest,
     ]);
 
     return (

@@ -50,6 +50,8 @@
         "label": "Click or drag to upload file",
         "labelHover": "Click to upload file",
         "dropLabel": "Drop file here...",
+        "replaceLabel": "Click or drag to replace file",
+        "replaceHoverLabel": "Click to replace file",
         "errors": {
           "uploadError": "There was an issue uploading chosen file"
         }

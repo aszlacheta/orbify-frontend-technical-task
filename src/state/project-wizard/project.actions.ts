@@ -17,7 +17,7 @@ export const setProjectNameAction = (dispatch: Dispatch<ProjectWizardDispatchAct
     dispatch({ type: ProjectActions.PROJECTS_WIZARD_SET_NAME, data: { name } });
 };
 export const setProjectDescriptionAction = (dispatch: Dispatch<ProjectWizardDispatchAction>, description: ProjectWizard['description']) => {
-    dispatch({ type: ProjectActions.PROJECTS_WIZARD_SET_NAME, data: { description } });
+    dispatch({ type: ProjectActions.PROJECTS_WIZARD_SET_DESCRIPTION, data: { description } });
 };
 
 export const setProjectDateRangeAction = (dispatch: Dispatch<ProjectWizardDispatchAction>, dateRange: ProjectWizard['dateRange']) => {

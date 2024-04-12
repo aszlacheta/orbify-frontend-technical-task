@@ -4,13 +4,13 @@ import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import dayjs, { Dayjs } from 'dayjs';
 import { useTranslation } from 'react-i18next';
-import styles from './ProjectWizardDateRange.module.css';
 import { WizardHeader } from '../../../../components/wizard-header/WizardHeader.tsx';
 import { IOnValidation } from '../../IOnValidation.ts';
 import { DateRange } from '../../../../api/generated.ts';
 
-type ProjectWizardDateError = undefined | 'required' | 'startDateAfterEndDate';
+import styles from './ProjectWizardDateRange.module.css';
 
+type ProjectWizardDateError = undefined | 'required' | 'startDateAfterEndDate';
 
 interface ProjectWizardDateRangeProps extends IOnValidation {
     startDate?: Dayjs | number | null;
@@ -58,10 +58,6 @@ export const ProjectWizardDateRange: FC<ProjectWizardDateRangeProps> = ({
 
     useEffect(() => {
         onDateRangeChange({ startDate: startDate?.valueOf(), endDate: endDate?.valueOf() });
-
-        return () => {
-            onDateRangeChange({});
-        };
     }, [startDate, endDate, onDateRangeChange]);
 
 

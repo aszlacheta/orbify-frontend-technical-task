@@ -1,9 +1,10 @@
 import { ChangeEvent, FC, useEffect, useMemo, useState } from 'react';
 import { Stack, TextField } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import styles from './ProjectWizardName.module.css';
 import { WizardHeader } from '../../../../components/wizard-header/WizardHeader.tsx';
 import { IOnValidation } from '../../IOnValidation.ts';
+
+import styles from './ProjectWizardName.module.css';
 
 type ProjectWizardNameError = undefined | 'required' | 'minLength' | 'maxLength';
 type ProjectWizardDescriptionError = undefined | 'minLength';
@@ -18,15 +19,23 @@ const DESCRIPTION_CONSTRAINTS = {
 };
 
 interface ProjectWizardNameProps extends IOnValidation {
+    name?: string;
+    description?: string;
     onNameChange: (name: string) => void;
     onDescriptionChange: (description: string) => void;
 }
 
-export const ProjectWizardName: FC<ProjectWizardNameProps> = ({ onValidation, onNameChange, onDescriptionChange }) => {
+export const ProjectWizardName: FC<ProjectWizardNameProps> = ({
+                                                                  name: nameInitial,
+                                                                  description: descriptionInitial,
+                                                                  onValidation,
+                                                                  onNameChange,
+                                                                  onDescriptionChange
+                                                              }) => {
     const { t } = useTranslation();
 
-    const [name, setName] = useState('');
-    const [description, setDescription] = useState('');
+    const [name, setName] = useState(nameInitial ?? '');
+    const [description, setDescription] = useState(descriptionInitial ?? '');
 
     const nameError = useMemo<ProjectWizardNameError>(() => {
         if (name === undefined || name.length === 0) {

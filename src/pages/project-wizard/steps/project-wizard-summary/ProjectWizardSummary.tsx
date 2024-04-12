@@ -21,10 +21,10 @@ export const ProjectWizardSummary: FC<ProjectWizardSummaryProps> = ({ onValidati
     const endDate = useMemo(() => dateRange.endDate && formatter.format(dateRange.endDate), [formatter, dateRange]);
 
     useEffect(() => {
-        onValidation(name?.length
+        onValidation(name?.length > 0
             && dateRange?.startDate !== undefined
             && dateRange?.endDate !== undefined
-            && areaOfInterestJson?.length);
+            && Object.keys(areaOfInterest).length > 0);
         return () => {
             onValidation(true);
         };
