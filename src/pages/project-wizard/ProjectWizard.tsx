@@ -1,8 +1,7 @@
 import { FC, useMemo, useReducer, useState } from 'react';
 import { Wizard } from '../../components/wizard/Wizard.tsx';
-import { initialData } from '../../state/project-wizard/project.data.ts';
 import { ProjectWizardContext, ProjectWizardDispatchContext } from '../../state/project-wizard/projectWizardContext.ts';
-import { projectWizardReducer } from '../../state/project-wizard/project.reducers.ts';
+import { projectWizardReducer, } from '../../state/project-wizard/project.reducers.ts';
 import { useTranslation } from 'react-i18next';
 import { WizardStep } from '../../components/wizard/data/wizard.data.ts';
 import { ProjectWizardName } from './steps/project-wizard-name/ProjectWizardName.tsx';
@@ -19,6 +18,8 @@ import {
 } from '../../state/project-wizard/project.actions.ts';
 import { AreaOfInterests, DateRange, useAddProject } from '../../api/generated.ts';
 import { toast } from 'react-toastify';
+import { ProjectWizard as IProjectWizard } from '../../state/project-wizard/project.data.ts';
+import { loadFromLocalStorage, withStoreInLocalStorage } from '../../state/project-wizard/ProjectWizardLocalStorage.ts';
 
 import styles from './ProjectWizard.module.css';
 
@@ -28,7 +29,7 @@ interface ProjectWizardProps {
 
 export const ProjectWizard: FC<ProjectWizardProps> = ({ activeStep }) => {
     const { t } = useTranslation();
-    const [projectWizardContext, dispatch] = useReducer(projectWizardReducer, initialData);
+    const [projectWizardContext, dispatch] = useReducer(withStoreInLocalStorage(projectWizardReducer), loadFromLocalStorage());
     const [isValid, setIsValid] = useState(true);
 
     const { mutateAsync: addProject } = useAddProject();
