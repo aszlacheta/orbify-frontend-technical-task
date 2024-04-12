@@ -25,9 +25,10 @@ import styles from './ProjectWizard.module.css';
 
 interface ProjectWizardProps {
     activeStep: number;
+    onProjectCreate?: (project: IProjectWizard) => void;
 }
 
-export const ProjectWizard: FC<ProjectWizardProps> = ({ activeStep }) => {
+export const ProjectWizard: FC<ProjectWizardProps> = ({ activeStep, onProjectCreate }) => {
     const { t } = useTranslation();
     const [projectWizardContext, dispatch] = useReducer(withStoreInLocalStorage(projectWizardReducer), loadFromLocalStorage());
     const [isValid, setIsValid] = useState(true);
@@ -38,6 +39,7 @@ export const ProjectWizard: FC<ProjectWizardProps> = ({ activeStep }) => {
         addProject({ data: projectWizardContext })
             .then(() => {
                 toast.success(t('api.projectCreation.success'));
+                onProjectCreate?.(projectWizardContext);
             })
             .catch(() => {
                 toast.error(t('api.projectCreation.failure'));

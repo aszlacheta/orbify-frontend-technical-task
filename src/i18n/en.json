@@ -81,5 +81,14 @@
       "success": "Project was successfully created!",
       "failure": "Experienced issue creating given project"
     }
+  },
+  "projectDetails": {
+    "button": "Open Project Details",
+    "dialog":{
+      "header": "Project Details",
+      "buttons": {
+        "close": "Close"
+      }
+    }
   }
 }
